@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+#Only Upload CPP
+*.vcproj
+*.sln
