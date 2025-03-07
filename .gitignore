@@ -34,3 +34,42 @@
 #Only Upload CPP
 *.vcproj
 *.sln
+
+# Visual Studio 관련 파일들
+.vs/
+.vs2019/
+*.vsix
+.vscode/
+
+# 데이터베이스 파일
+*.db
+
+# Visual Studio 사용자 설정 파일들
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# 로그 및 빌드 관련 파일들
+*.log
+*.bak
+*.tmp
+*.swp
+
+# JSON 설정 파일들 (프로젝트 설정 외)
+settings.json
+localconfig.json
+
+# Visual Studio 프로젝트 파일들 (C++ 프로젝트 관련)
+*.vcxproj
+*.vcxproj.filters
+
+# 빌드 시스템 설정 파일
+*.recipe
+
+# Visual Studio 빌드 관련 임시 파일들
+*.ilk
+*.lastbuildstate
+*.tlog
+*.idb
+*.pdb
