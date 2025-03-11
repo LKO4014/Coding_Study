@@ -14,6 +14,8 @@ int main()
 
     cout << s;
 
+    int count = 0;
+
     string compare = "IOI";
     for (int i = 1; i < n; i++) {
         compare += "OI";
@@ -21,7 +23,15 @@ int main()
     cout << "\n";
     cout <<"COMPARE : " << compare;
     for (int i = 0; i < s.size()-compare.size(); i++) {
-        
+        string tmpstring="";
+        for (int j = 0; j < compare.size();) {
+            tmpstring += s[i];
+            s.erase(s.begin()+i);
+        }
+        if (tmpstring == compare) {
+            count++;
+        }
     }
+    cout << count;
 }
 
