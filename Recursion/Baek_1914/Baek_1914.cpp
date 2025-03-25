@@ -1,8 +1,9 @@
 ﻿#include <iostream>
 #include <vector>
+#define VPAIR vector<pair<int,int>>
 using namespace std;
 
-static vector<pair<int, int>>* vec;
+static VPAIR* vec;
 
 // 하노이 횟수 반환
 int COUNT(int a) {
@@ -15,7 +16,7 @@ int COUNT(int a) {
 // 치환 함수에서 vec[a-1]을 사용함. 인덱스 오류 문제 발생 가능성이 있으니, 이 점 유의하여 풀어야함
 
 // a-1 인덱스의 vector 배열에서 2>>3 , 3>>2로 바꾼 벡터 배열을 반환하는 함수
-vector<pair<int, int>> subsit_first(int a) {
+VPAIR subsit_first(int a) {
     vector<pair<int, int>> answer;
     for (int i = 0; i < vec[a - 1].size(); i++) {
         int tmp1, tmp2;
@@ -47,7 +48,7 @@ vector<pair<int, int>> subsit_first(int a) {
 }
 
 // a-1 인덱스의 vector 배열에서 1>>2 , 2>>1로 바꾼 벡터 배열을 반환하는 함수
-vector<pair<int, int>> subsit_sec(int a) {
+VPAIR subsit_sec(int a) {
     vector<pair<int, int>> answer;
     for (int i = 0; i < vec[a - 1].size(); i++) {
         int tmp1, tmp2;
@@ -78,8 +79,17 @@ vector<pair<int, int>> subsit_sec(int a) {
     }
 }
 
-vector<pair<int,int>> hanoi(int a) {
-    vector<pair<int, int>> answer;
+VPAIR add(VPAIR a, VPAIR b) {
+    VPAIR ANSWER;
+    VPAIR mid = { {1,3} };
+    ANSWER.insert(ANSWER.end(), a.begin(), a.end());
+    ANSWER.insert(ANSWER.end(), mid.begin(), mid.end());
+    ANSWER.insert(ANSWER.end(), b.begin(), b.end());
+    return ANSWER;
+}
+
+VPAIR hanoi(int a) {
+    VPAIR answer;
     if (a == 1) {
         answer.push_back(make_pair(1, 3));
         vec[a - 1] = answer;
@@ -89,10 +99,7 @@ vector<pair<int,int>> hanoi(int a) {
         //vec[a-1]를 만드는 함수 (재귀)
         // vec[a-1] = vec[a-2] 의 subsit_first + (1,3) + subsit_sec 
         // 함수가 반환하지 않고 vec으로 바로 올릴 수 있도록 해야하나? void 형 선언?
-
-        answer = hanoi(subsit_first(a-1))
-
-        vec[a - 1] = answer;
+        return 
     }
 }
 
