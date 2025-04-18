@@ -99,6 +99,21 @@ public:
 		delete curr;
 	}
 
+	void Search(int _data) {
+		Node* tmp = head;
+
+		while (tmp->data != _data && tmp->next !=nullptr) {
+			tmp = tmp->next;
+		}
+
+		if (tmp->data == _data) {
+			cout << "데이터 찾음" << tmp->data << "\n";
+		}
+		else {
+			cout << "데이터 없음" << "\n";
+		}
+	}
+
 	~LinkedList() {
 		Node* current = head;
 		while (current != nullptr) {
@@ -121,7 +136,12 @@ int main()
 	list.append(13);
 	list.append(14);
 	list.remove(13);
+
+	list.Search(12);
+
 	list.print();
+	cout << "\n";
+	cout << sizeof(Node) << " " << sizeof(Node*) << " " << sizeof(int);
 
 }
 
