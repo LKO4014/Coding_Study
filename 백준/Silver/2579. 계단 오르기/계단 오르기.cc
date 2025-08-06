@@ -4,7 +4,6 @@ using namespace std;
 
 int stair[301];
 int dp[301];
-int answer(int index);
 
 int main()
 {
