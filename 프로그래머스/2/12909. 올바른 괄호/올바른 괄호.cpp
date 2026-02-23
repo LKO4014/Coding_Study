@@ -1,30 +1,34 @@
 #include<string>
 #include <iostream>
-#include <vector>
+#include <stack>
+
 using namespace std;
 
 bool solution(string s)
 {
-    vector<char> stack;
-    bool answer;
-    for(int i=0; i<s.size(); i++){
-        printf("%c",s[i]);
+    bool answer = true;
+
+    stack<int> stk;
+    
+    int i=0;
+    while(i<s.length()){
         if(s[i]=='('){
-            stack.push_back('(');
+            stk.push(1);
         }
-        if(s[i]==')'){
-            if(stack.size()==0){
+        else{
+            if(stk.size()==0){
                 answer = false;
-                return answer;
-            }else{
-                stack.pop_back();
             }
+            else{
+                stk.pop();
+            }
+            
         }
+        i++;
     }
-    if(stack.size()==0){
-        answer = true;
-    }else{
-        answer=false;
+    
+    if(stk.size()!=0 || answer == false){
+        answer = false;
     }
     
     return answer;
